@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Db_store 파일 제거 ###
+.DS_Store
