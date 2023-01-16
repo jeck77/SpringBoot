@@ -2,6 +2,7 @@ package com.edu;
 
 import com.edu.discount.DiscountPolicy;
 import com.edu.discount.FixDisCountPolicy;
+import com.edu.discount.RateDiscountPolicy;
 import com.edu.member.MemberService;
 import com.edu.member.MemberServiceImpl;
 import com.edu.member.MemoryMemberRepository;
@@ -23,6 +24,8 @@ public class AppConfig {
     }
 
     public DiscountPolicy discountPolicy(){
-        return new FixDisCountPolicy();
+        // 고정 -> 할인 정책으로 변경
+        //return new FixDisCountPolicy();
+        return new RateDiscountPolicy();
     }
 }
