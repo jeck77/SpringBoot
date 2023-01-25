@@ -4,7 +4,6 @@ import com.edu.AppConfig;
 import com.edu.member.Grade;
 import com.edu.member.Member;
 import com.edu.member.MemberService;
-import com.edu.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

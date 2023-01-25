@@ -4,7 +4,6 @@ import com.edu.AppConfig;
 import com.edu.member.Grade;
 import com.edu.member.Member;
 import com.edu.member.MemberService;
-import com.edu.member.MemberServiceImpl;
 
 public class MemberApp {
     public static void main(String[] args) {

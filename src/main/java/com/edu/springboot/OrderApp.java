@@ -4,10 +4,8 @@ import com.edu.AppConfig;
 import com.edu.member.Grade;
 import com.edu.member.Member;
 import com.edu.member.MemberService;
-import com.edu.member.MemberServiceImpl;
 import com.edu.order.Order;
 import com.edu.order.OrderService;
-import com.edu.order.OrderServiceImpl;
 
 public class OrderApp {
     public static void main(String[] args) {
