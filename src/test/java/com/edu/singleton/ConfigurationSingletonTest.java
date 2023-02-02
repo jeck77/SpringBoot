@@ -24,9 +24,22 @@ public class ConfigurationSingletonTest {
         MemberRepository memberRepository1 = memberService.getMemberRepository();
         MemberRepository memberRepository2 = orderService.getMemberRepository();
 
-        System.out.println("memberRepository1 = " + memberRepository1);
-        System.out.println("memberRepository2 = " + memberRepository2);
+        System.out.println("memberService -> memberRepository1 = " + memberRepository1);
+        System.out.println("orderService -> memberRepository2 = " + memberRepository2);
         System.out.println("memberRepository = " + memberRepository);
 
+    }
+    
+    @Test
+    @DisplayName("테스트")
+    void configurationDeep(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        AppConfig bean = ac.getBean(AppConfig.class);
+        AppConfig bean2 = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean);
+        System.out.println("bean2 = " + bean2);
+        
     }
 }
