@@ -13,6 +13,17 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
+
+    // call AppConfig.memberService
+    // call AppConfig.memberRepository
+    // call AppConfig.memberRepository
+    // call AppConfig.orderService
+    // call AppConfig.memberRepository
+
+    // call AppConfig.memberService
+    // call AppConfig.memberRepository
+    // call AppConfig.orderService
+    
     @Bean   // @Bean 을 붙여주면 스프링 컨테이너에 등록된다.
     public MemberService memberService() {
         System.out.println("call AppConfig.memberService");
