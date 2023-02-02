@@ -3,11 +3,13 @@ package com.edu;
 import com.edu.discount.DiscountPolicy;
 import com.edu.discount.FixDisCountPolicy;
 import com.edu.discount.RateDiscountPolicy;
+import com.edu.member.MemberRepository;
 import com.edu.member.MemberService;
 import com.edu.member.MemberServiceImpl;
 import com.edu.member.MemoryMemberRepository;
 import com.edu.order.OrderService;
 import com.edu.order.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,7 +25,11 @@ public class AppConfig {
     // call AppConfig.memberService
     // call AppConfig.memberRepository
     // call AppConfig.orderService
-    
+
+    // 자동 주입
+    //@Autowired
+    //MemberRepository memberRepository;
+
     @Bean   // @Bean 을 붙여주면 스프링 컨테이너에 등록된다.
     public MemberService memberService() {
         System.out.println("call AppConfig.memberService");
