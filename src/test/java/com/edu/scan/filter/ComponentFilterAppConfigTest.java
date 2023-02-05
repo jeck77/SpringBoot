@@ -29,7 +29,14 @@ public class ComponentFilterAppConfigTest {
         );
     }
 
-
+    // FilterType 옵션 5가지
+    // 1. Annotation        : 기본값, 애노테이션을 인식해서 동작한다
+    // 2. Assignable_type   : 지정한 타입과 자식 타입을 인식해서 동작한다.
+    // 3. Aspectj           : Aspectj 패턴 사용
+    // 4. Regex             : 정규 표현식
+    // 5. Custom            : TypeFilter 이라는 인터페이스를 구현해서 처리
+    // Component면 충분하기 떄문에[ includeFilters를 사용할 일은 거의 없다
+    // excludeFilters는 여러가지 이유로 간혹 사용하긴 하지만 자주 사용하진 않는다.
     @Configuration
     @ComponentScan(
             includeFilters = @Filter(type = FilterType.ANNOTATION, classes = MyIncludeComponent.class),
