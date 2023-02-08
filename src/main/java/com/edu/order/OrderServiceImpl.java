@@ -1,14 +1,13 @@
 package com.edu.order;
 
 import com.edu.discount.DiscountPolicy;
-import com.edu.discount.FixDisCountPolicy;
-import com.edu.discount.RateDiscountPolicy;
 import com.edu.member.Member;
 import com.edu.member.MemberRepository;
-import com.edu.member.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+// 자동 vs 자동이 이름이 같으면 에러 발생
+//@Component("service")
 @Component
 public class OrderServiceImpl implements OrderService{
 

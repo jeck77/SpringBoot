@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 // 빈 등록 자동화
+// 자동 vs 자동이 이름이 같으면 에러 발생
+//@Component("service")
 @Component
 public class MemberServiceImpl implements MemberService{
 
