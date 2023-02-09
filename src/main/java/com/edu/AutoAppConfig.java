@@ -1,8 +1,5 @@
 package com.edu;
 
-import com.edu.member.MemberRepository;
-import com.edu.member.MemoryMemberRepository;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -33,8 +30,8 @@ public class AutoAppConfig {
     // 로그를 : Overriding bean definition for bean 'memoryMemberRepository' with a different definition: replacing
     // 여러명이 여러개를 관리하면 꼬이기 떄문에 최근 스프링 부트는 수동 빈과 자동 빈이 충돌을 하면 오류가 발생하도록 기본 값을 바꾸었다.
     // 실제로 @SpringBootApplication 메인을 시작하면 에러가 발생한다.
-    @Bean(name = "memoryMemberRepository")
-    MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository")
+//    MemberRepository memberRepository(){
+//        return new MemoryMemberRepository();
+//    }
 }
