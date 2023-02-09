@@ -6,7 +6,6 @@ import com.edu.member.MemberService;
 import com.edu.member.MemberServiceImpl;
 import com.edu.member.MemoryMemberRepository;
 import com.edu.order.OrderService;
-import com.edu.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -42,8 +41,8 @@ public class AppConfig {
     @Bean
     public OrderService orderService() {
         System.out.println("call AppConfig.orderService");
-        return new OrderServiceImpl(discountPolicy(), memberRepository());
-        //return null;
+       // return new OrderServiceImpl(discountPolicy(), memberRepository());
+        return null;
     }
 
     @Bean

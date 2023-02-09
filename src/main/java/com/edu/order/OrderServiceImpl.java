@@ -33,10 +33,10 @@ public class OrderServiceImpl implements OrderService{
      */
 
 
-     private DiscountPolicy discountPolicy;
-     private MemberRepository memberRepository;
+     private final DiscountPolicy discountPolicy;
+     private final MemberRepository memberRepository;
 
-      @Autowired(required = false)
+/*      @Autowired(required = false)
       public void setDiscountPolicy(DiscountPolicy discountPolicy) {
           System.out.println("OrderServiceImpl.setDiscountPolicy");
           this.discountPolicy = discountPolicy;
@@ -46,7 +46,7 @@ public class OrderServiceImpl implements OrderService{
       public void setMemberRepository(MemberRepository memberRepository) {
           System.out.println("OrderServiceImpl.setMemberRepository");
           this.memberRepository = memberRepository;
-      }
+      }*/
 
     /**
      * 3. 필드 주입
@@ -103,11 +103,11 @@ public class OrderServiceImpl implements OrderService{
      * 한번에 여러 필드를 주입 받을 수 있다.
      * 일반적으로 잘 사용하지 않는다
      */
-    @Autowired
+/*    @Autowired
     public void init (MemberRepository memberRepository, DiscountPolicy discountPolicy){
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
-    }
+    }*/
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
