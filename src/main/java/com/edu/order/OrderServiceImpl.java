@@ -91,7 +91,12 @@ public class OrderServiceImpl implements OrderService{
      *         this.memberRepository = memberRepository;
      *     }
      */
-
+    @Autowired
+      public OrderServiceImpl(DiscountPolicy discountPolicy, MemberRepository memberRepository) {
+          System.out.println("OrderServiceImpl.OrderServiceImpl");
+          this.discountPolicy = discountPolicy;
+          this.memberRepository = memberRepository;
+      }
 
     /**
      * 4. 일반 메서드 주입
