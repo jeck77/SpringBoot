@@ -3,14 +3,13 @@ package com.edu.order;
 import com.edu.discount.DiscountPolicy;
 import com.edu.member.Member;
 import com.edu.member.MemberRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 // 자동 vs 자동이 이름이 같으면 에러 발생
 //@Component("service")
 @Component
 // final 태그가 붙은 필드를 가진 생성자를 자동 생성해주기 때문에 생성자를 적을 필요가 없어짐
-@RequiredArgsConstructor
+// @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -38,6 +37,8 @@ public class OrderServiceImpl implements OrderService{
      private final DiscountPolicy discountPolicy;
      private final MemberRepository memberRepository;
 
+     //@Autowired
+     //private  DiscountPolicy rateDiscountPolicy;
 /*      @Autowired(required = false)
       public void setDiscountPolicy(DiscountPolicy discountPolicy) {
           System.out.println("OrderServiceImpl.setDiscountPolicy");
@@ -98,8 +99,23 @@ public class OrderServiceImpl implements OrderService{
           System.out.println("OrderServiceImpl.OrderServiceImpl");
           this.discountPolicy = discountPolicy;
           this.memberRepository = memberRepository;
-      }*/
+      }
+ */
 
+    public OrderServiceImpl(DiscountPolicy discountPolicy, MemberRepository memberRepository) {
+        System.out.println("OrderServiceImpl.OrderServiceImpl");
+        this.discountPolicy = discountPolicy;
+        this.memberRepository = memberRepository;
+    }
+    /**
+     * @Autowired에서 조회 대상 빈이 2개이면 파라미터 값을 따라서 빈을 주입시킨다.
+     */
+/**
+ * public OrderServiceImpl(DiscountPolicy rateDiscountPolicy, MemberRepository memberRepository) {
+        System.out.println("OrderServiceImpl.OrderServiceImpl");
+        this.discountPolicy = rateDiscountPolicy;
+        this.memberRepository = memberRepository;
+    }*/
     /**
      * 4. 일반 메서드 주입
      * 한번에 여러 필드를 주입 받을 수 있다.
@@ -110,6 +126,14 @@ public class OrderServiceImpl implements OrderService{
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }*/
+
+    /**
+     *     public OrderServiceImpl(@Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy, MemberRepository memberRepository) {
+     *         System.out.println("OrderServiceImpl.OrderServiceImpl");
+     *         this.discountPolicy = discountPolicy;
+     *         this.memberRepository = memberRepository;
+     *     }
+     */
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
