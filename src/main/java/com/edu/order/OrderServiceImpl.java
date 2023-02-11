@@ -3,12 +3,14 @@ package com.edu.order;
 import com.edu.discount.DiscountPolicy;
 import com.edu.member.Member;
 import com.edu.member.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 // 자동 vs 자동이 이름이 같으면 에러 발생
 //@Component("service")
 @Component
+// final 태그가 붙은 필드를 가진 생성자를 자동 생성해주기 때문에 생성자를 적을 필요가 없어짐
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
@@ -91,12 +93,12 @@ public class OrderServiceImpl implements OrderService{
      *         this.memberRepository = memberRepository;
      *     }
      */
-    @Autowired
+/**   @Autowired
       public OrderServiceImpl(DiscountPolicy discountPolicy, MemberRepository memberRepository) {
           System.out.println("OrderServiceImpl.OrderServiceImpl");
           this.discountPolicy = discountPolicy;
           this.memberRepository = memberRepository;
-      }
+      }*/
 
     /**
      * 4. 일반 메서드 주입
