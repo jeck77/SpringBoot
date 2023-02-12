@@ -1,5 +1,6 @@
 package com.edu.order;
 
+import com.edu.annotation.MainDiscountPolicy;
 import com.edu.discount.DiscountPolicy;
 import com.edu.member.Member;
 import com.edu.member.MemberRepository;
@@ -102,7 +103,7 @@ public class OrderServiceImpl implements OrderService{
       }
  */
 
-    public OrderServiceImpl(DiscountPolicy discountPolicy, MemberRepository memberRepository) {
+    public OrderServiceImpl(@MainDiscountPolicy DiscountPolicy discountPolicy, MemberRepository memberRepository) {
         System.out.println("OrderServiceImpl.OrderServiceImpl");
         this.discountPolicy = discountPolicy;
         this.memberRepository = memberRepository;

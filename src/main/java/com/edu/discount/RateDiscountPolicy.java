@@ -1,14 +1,15 @@
 package com.edu.discount;
 
+import com.edu.annotation.MainDiscountPolicy;
 import com.edu.member.Grade;
 import com.edu.member.Member;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 //자동화
 @Component
 //@Qualifier("mainDiscountPolicy")
-@Primary
+//@Primary
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy {
     private  int discountPercent = 10;
     @Override
