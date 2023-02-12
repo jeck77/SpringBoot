@@ -3,7 +3,6 @@ package com.edu.beanfind;
 import com.edu.discount.DiscountPolicy;
 import com.edu.discount.FixDisCountPolicy;
 import com.edu.discount.RateDiscountPolicy;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;

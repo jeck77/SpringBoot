@@ -4,6 +4,7 @@ import com.edu.annotation.MainDiscountPolicy;
 import com.edu.discount.DiscountPolicy;
 import com.edu.member.Member;
 import com.edu.member.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 // 자동 vs 자동이 이름이 같으면 에러 발생
@@ -102,7 +103,7 @@ public class OrderServiceImpl implements OrderService{
           this.memberRepository = memberRepository;
       }
  */
-
+    @Autowired
     public OrderServiceImpl(@MainDiscountPolicy DiscountPolicy discountPolicy, MemberRepository memberRepository) {
         System.out.println("OrderServiceImpl.OrderServiceImpl");
         this.discountPolicy = discountPolicy;
