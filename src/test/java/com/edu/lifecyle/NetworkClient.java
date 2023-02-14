@@ -1,9 +1,7 @@
 package com.edu.lifecyle;
 
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-
-public class NetworkClient implements InitializingBean, DisposableBean {
+//implements InitializingBean, DisposableBean
+public class NetworkClient  {
 
     private String url;
 
@@ -40,15 +38,42 @@ public class NetworkClient implements InitializingBean, DisposableBean {
      * 3. 내가 고칠 수 없는 외부 라이브러리에 적용할 수없다.
      * 따라서 최근에는 거의 사용하지 않는다.
      */
-    @Override
-    public void afterPropertiesSet() throws Exception {
+//    @Override
+//    public void afterPropertiesSet() throws Exception {
+//        System.out.println("NetworkClient.afterPropertiesSet");
+//        connect();
+//        call("초기화 연결 메세지");
+//    }
+//
+//    @Override
+//    public void destroy() throws Exception {
+//        System.out.println("NetworkClient.destroy");
+//        disconnect();
+//    }
+
+
+    /**
+     * @Bean(initMethod = "", destoryMethod = "")
+     *
+     * 장점 :
+     * 1. 메소드 이름을 자유롭게 가능
+     * 2. 스프링 빈이 스프링 코드에 의존 x
+     * 3. 코드가 아니라 설정 정보를 사용하기 때문에 코드를 고칠 수 없는 외부 라이브러리에도 초기화, 종료 메서드를 적용 가능
+     *
+     * "종료 메서드의 추론"
+     * destoryMethod의 Default값은 inferred(추론)으로 등록 되어 있다.
+     * 라이브러리의 대부분 close, shutdown 이라는 이름의 종료 메서드를 사용한다.
+     * 이 추론의 기능은 close, shutdown라는 이름의 메서드를 자동으로 호출해준다.
+     * 따라서 직접 스프링 빈으로 등록하면 종료 메서드를 따로 적어주지 않아도 잘 동작한다.
+     * 만약 추론 기능을 사용하기 싫으면 destoryMethod = "" 빈값을 넣어주면 된다.
+     */
+    public void init() throws Exception {
         System.out.println("NetworkClient.afterPropertiesSet");
         connect();
         call("초기화 연결 메세지");
     }
 
-    @Override
-    public void destroy() throws Exception {
+    public void close() throws Exception {
         System.out.println("NetworkClient.destroy");
         disconnect();
     }

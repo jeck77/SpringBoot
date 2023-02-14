@@ -42,7 +42,7 @@ public class BeanLifeCycleTest {
          * 2. 설정 정보에 초기화 메서드, 종료 메서드 지정
          * 3. @PostConstruct, @PreDestroy 애노테이션 지원
          */
-        @Bean
+        @Bean(initMethod = "init", destroyMethod = "close")
         public NetworkClient networkClient(){
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-spirng.dev");
