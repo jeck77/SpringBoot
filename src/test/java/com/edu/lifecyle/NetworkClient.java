@@ -32,7 +32,13 @@ public class NetworkClient implements InitializingBean, DisposableBean {
 
     /**
      * implements InitializingBean, DisposableBean 방식
-     * 의존 관계 주입이 끝나면
+     * 의존 관계 주입이 끝나면 알려준다.
+     *
+     * 단점 :
+     * 1. 이 인터페이스는 스프링 전용 인터페이스다. 해당 코드가 스프링 전용 인터페이스에 의존한다.
+     * 2. 초기화, 소멸 메소드 이름을 변경할 수 없다.
+     * 3. 내가 고칠 수 없는 외부 라이브러리에 적용할 수없다.
+     * 따라서 최근에는 거의 사용하지 않는다.
      */
     @Override
     public void afterPropertiesSet() throws Exception {
