@@ -1,5 +1,8 @@
 package com.edu.lifecyle;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 //implements InitializingBean, DisposableBean
 public class NetworkClient  {
 
@@ -67,12 +70,27 @@ public class NetworkClient  {
      * 따라서 직접 스프링 빈으로 등록하면 종료 메서드를 따로 적어주지 않아도 잘 동작한다.
      * 만약 추론 기능을 사용하기 싫으면 destoryMethod = "" 빈값을 넣어주면 된다.
      */
+
+    /**
+     * import에 javax로 되어있으면 자바에서 지원하는 기능이다.
+     * 장점 :
+     * 1. 최신 스프링에서 가장 권장하는 방법이다.
+     * 2. 애노테이션 하나만 붙이면 되므로 매우 편하다.
+     * 3. import javax.annotation.PreDestroy 처럼 스프링에 종속적인 기술이 아니라 jsr-250이라는 자바 표준이다. 따라서 스프링 아닌 다른 컨테이너에서도 동작한다.
+     * 4. 컴포넌트 스캔과 잘 어울린다.
+     * 단점 :
+     * 1. 유일한 단점은 외부 라이브러리에 적용할 수가 없다.
+     * 2. 외부 라이브러리를 초기화 종료 해야한다면 @Bean의 기능을 사용하자.
+     *
+     * 정리 : @PostConstruct, @PreDestroy 사용하자, 코드를 고치기 힘들면 @Bean의 기능을 사용하자.
+     */
+    @PostConstruct
     public void init() throws Exception {
         System.out.println("NetworkClient.afterPropertiesSet");
         connect();
         call("초기화 연결 메세지");
     }
-
+    @PreDestroy
     public void close() throws Exception {
         System.out.println("NetworkClient.destroy");
         disconnect();
