@@ -1,6 +1,7 @@
 package com.edu.common;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -19,7 +20,13 @@ import java.util.UUID;
  * 4. websocket: 웹 소켓과 동일한 생명주기를 가지는 스코프
  */
 @Component
-@Scope(value = "request")
+//@Scope(value = "request")
+/**
+ * 프록시 모드 : CGLIB라는 라이브러리로 내 클래스를 상속 받은 가짜 프록시 객체를 만들어서 주입한다.
+ * 1. 적용 대상이 인터페이스가 아닌 클래스면 TARGET_CLASS 를 선택
+ * 2. 적용 대상이 인터페이스면 INTERFACES 를 선택
+ */
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class MyLogger {
     private String uuid;
     private String requestURL;
